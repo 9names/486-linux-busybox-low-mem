@@ -1,0 +1,39 @@
+dir /dev 755 1000 1000
+nod /dev/console 64 0 0 c 5 1
+nod /dev/loop0 644 0 0 b 7 0
+nod /dev/null 644 0 0 c 1 3
+nod /proc 644 0 0 c 1 3
+dir /bin 755 1000 1000
+slink /bin/sh busybox 777 0 0
+slink /bin/getty busybox 777 0 0
+slink /bin/hush busybox 777 0 0
+slink /bin/free busybox 777 0 0
+slink /bin/kill busybox 777 0 0
+slink /bin/init busybox 777 0 0
+slink /bin/ps busybox 777 0 0
+slink /bin/ls busybox 777 0 0
+slink /init /bin/busybox 777 0 0
+slink /bin/cat busybox 777 0 0
+slink /bin/cp busybox 777 0 0
+slink /bin/rm busybox 777 0 0
+slink /bin/df busybox 777 0 0
+slink /bin/free busybox 777 0 0
+slink /bin/mkdir busybox 777 0 0
+slink /bin/mknod busybox 777 0 0
+slink /bin/mount busybox 777 0 0
+slink /bin/mv busybox 777 0 0
+slink /bin/dmesg busybox 777 0 0
+slink /bin/touch busybox 777 0 0
+cat, cp, df, dmesg, free, getty, hush, init, kill, ls, mkdir, mknod, mount, mv, ps, rm, sh, touch
+nod /dev/tty2 644 0 0 c 5 1
+nod /dev/tty3 644 0 0 c 5 1
+nod /dev/tty4 644 0 0 c 5 1
+dir /proc 755 0 0
+dir /sys 755 0 0
+dir /mnt 755 0 0
+dir /etc 755 0 0
+dir /etc/init.d 755 0 0
+file /etc/init.d/rcS initramfs/rcS 755 0 0
+file /bin/busybox initramfs/busybox 755 0 0
+file /etc/inittab initramfs/inittab 755 0 0
+file /etc/fstab initramfs/fstab 755 0 0
