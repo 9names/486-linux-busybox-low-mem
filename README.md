@@ -1,7 +1,7 @@
 # 486-linux-busybox-low-mem
-Experiments in running Linux on a low RAM 486
+Experiments in running Linux on a low RAM 486, simulated with QEMU
 
-To recreate these experiments as tested:
+### To recreate these experiments as tested:
 
 Grab a copy of the i486 musl cross compiler
 https://musl.cc/i486-linux-musl-cross.tgz
@@ -25,14 +25,14 @@ export PATH=$PATH:/opt/i486-linux-musl-cross/bin
 
 Extract all the sources, clone/download this repo somewhere (i'll refer to it as being in ~/Downloads)
 
-# Building busybox
+# Building Busybox
 cd to the busybox folder
 copy busybox_config/.config to the busybox folder
 then
 CROSS_COMPILE=i486-linux-musl- make menuconfig
 CROSS_COMPILE=i486-linux-musl- make
 
-# Building linux
+# Building Linux
 cd to the linux folder
 copy linux_config/.config to the linux folder
 copy rootfs -R into the linux folder
@@ -53,6 +53,9 @@ qemu-system-i386 -cpu 486 -kernel arch/x86/boot/bzImage -m 8M
 
 # Notes:
 Compressing the initramfs requires more memory - since it's so small anyway, I recommend not bothering
+
 Compressing the kernel does not affect runtime memory usage at all - if there's sufficient memory for the uncompressed kernel and the decompression buffers, then you can use any compression method you like. I did not run into issues with the kernel sizes I was getting with a minimal config. XZ should give best compression, and therefore best boot speeds from slow media like floppy disk.
+
 ProcFS as configured here uses about 100K of ram.
+
 printk support (currently disabled) uses about 200K of ram
