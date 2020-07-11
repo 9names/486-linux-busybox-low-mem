@@ -59,3 +59,7 @@ Compressing the kernel does not affect runtime memory usage at all - if there's 
 ProcFS as configured here uses about 100K of ram.
 
 printk support (currently disabled) uses about 200K of ram
+
+###Useful commands for checking memory usage:
+cat /proc/meminfo
+cat /proc/iomem
