@@ -33,8 +33,8 @@ cd to the busybox folder, then copy the Busybox config into it
 cd ~/Downloads/busybox-1.32.0
 cp ~/Downloads/486-linux-busybox-low-mem/busybox_config/.config ./
 
-CROSS_COMPILE=i486-linux-musl- make menuconfig
-CROSS_COMPILE=i486-linux-musl- make
+CROSS_COMPILE=i486-linux-musl- ARCH=x86 make menuconfig
+CROSS_COMPILE=i486-linux-musl- ARCH=x86 make
 ```
 
 # Building Linux
@@ -43,8 +43,8 @@ cd ~/Downloads/linux-5.8-rc1
 cp ~/Downloads/486-linux-busybox-low-mem/linux_config/.config ./
 cp ~/Downloads/486-linux-busybox-low-mem/rootfs ./ -R
 cp ~/Downloads/busybox-1.32.0/busybox initramfs
-CROSS_COMPILE=i486-linux-musl- make menuconfig
-CROSS_COMPILE=i486-linux-musl- make
+CROSS_COMPILE=i486-linux-musl- ARCH=x86 make menuconfig
+CROSS_COMPILE=i486-linux-musl- ARCH=x86 make
 ```
 
 # Running your newly built system
